@@ -473,7 +473,7 @@ table.schedule-table td.time {
 /* Activity illustrations — the official poster's Yowie cutout, reused per detail page */
 
 .activity-illustration {
-  max-width: 220px;
+  max-width: 300px;
   margin: 0 0 1.75rem;
   background: var(--cream);
   border: 1px solid var(--cream-dim);

@@ -415,6 +415,28 @@ h2.section-title {
   margin-bottom: 0.6rem;
 }
 
+/* Map embed */
+
+.map-embed {
+  margin-top: 1.25rem;
+  border: 1px solid var(--cream-dim);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(20, 40, 38, 0.12);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  display: block;
+}
+
+.map-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
 /* Schedule table */
 
 .schedule-day {

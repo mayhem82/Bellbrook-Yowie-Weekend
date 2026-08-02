@@ -1,35 +1,40 @@
-# Bellbrook Yowie Weekend
+# The Yowie Festival — Bellbrook
 
-Static site for the Yowie Weekend festival. Plain HTML/CSS, no build step, no
-framework — deploys as-is to GitHub Pages or any static host.
+Static site for The Yowie Festival, a Macleay Valley Hospice & Bellbrook
+Community Fundraiser, 2–4 October 2026 in Bellbrook, NSW. Plain HTML/CSS, no
+build step, no framework — deploys as-is to GitHub Pages or any static host.
 
 ## Status
 
-Draft scaffold only. Event name, dates, venue, schedule, vendors, sponsors and
-ticket prices are all placeholders and need to be filled in.
+Core event details are confirmed (name, tagline, dates, town, cause, and the
+weekend's activity list). Still to fill in: exact venue address, day-by-day
+times, stallholder/sponsor names, ticket and camping prices, and a contact
+email.
 
 ## Structure
 
 ```
 index.html      Home / about the event
-schedule.html   Weekend program (Day 1 / Day 2 tables)
+schedule.html   Weekend program (Day 1 / Day 2 / Day 3 tables)
 vendors.html    Market stalls, food vendors, sponsors
-tickets.html    Ticket options, volunteering, "get involved" form
+tickets.html    Ticket options, camping, volunteering, "get involved" form
 assets/
   styles.css    Shared styling for all pages
 ```
 
-## Filling in the placeholders
+## Filling in the remaining placeholders
 
 Every page uses `[[TOKEN]]` markers for content that isn't decided yet. Search
 the whole repo for `[[` to find them all, e.g.:
 
-- `[[EVENT_NAME]]` — the festival's actual name
-- `[[EVENT_TOWN]]`, `[[EVENT_VENUE]]`, `[[EVENT_DATES]]`
-- `[[DAY_1_DATE]]`, `[[DAY_2_DATE]]`
-- `[[TICKET_PRICE_WEEKEND]]`, `[[TICKET_PRICE_DAY]]`, `[[TICKET_PRICE_FAMILY]]`, `[[TICKETING_LINK]]`
-- `[[VENDOR_NAME_*]]`, `[[SPONSOR_NAME_*]]`
+- `[[FISHING_LOCATION]]` — where the fishing competition is held
+- `[[TICKET_PRICE_WEEKEND]]`, `[[TICKET_PRICE_DAY]]`, `[[TICKET_PRICE_FAMILY]]`, `[[CAMPING_PRICE]]`, `[[TICKETING_LINK]]`
+- `[[CHILD_AGE_LIMIT]]`, `[[N]]` — free-entry age cutoff and family pass child count
+- `[[VENDOR_NAME_*]]`, `[[SPONSOR_NAME_*]]` — stallholder and sponsor names
 - `[[CONTACT_EMAIL]]`
+
+Exact times weren't on the event poster, so `schedule.html` uses "TBC" in the
+time column — replace those once the official running order is published.
 
 A quick way to replace one token everywhere once you have the real value:
 

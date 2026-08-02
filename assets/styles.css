@@ -1,0 +1,400 @@
+/* Yowie Weekend — shared styles
+   Plain CSS, no build step, so the whole /assets folder can be copied
+   straight into any static host. */
+
+:root {
+  --forest-dark: #16241c;
+  --forest: #1f3a2a;
+  --forest-mid: #2f5238;
+  --moss: #5b8c5a;
+  --moss-light: #9cc08c;
+  --bark: #4a3728;
+  --cream: #f5f1e6;
+  --cream-dim: #e8e1cf;
+  --accent: #d98f3d;
+  --accent-dark: #a8642a;
+  --ink: #1b1b16;
+  --radius: 10px;
+  --max-width: 1080px;
+  font-size: 17px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--forest-mid);
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header / nav */
+
+.site-header {
+  background: var(--forest-dark);
+  color: var(--cream);
+  border-bottom: 4px solid var(--accent);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--cream);
+}
+
+.brand-mark {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.brand-text {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.brand-text small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--moss-light);
+  text-transform: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--cream-dim);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Placeholder banner */
+
+.placeholder-banner {
+  background: var(--accent);
+  color: var(--ink);
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+/* Hero */
+
+.hero {
+  background: linear-gradient(180deg, var(--forest) 0%, var(--forest-mid) 100%);
+  color: var(--cream);
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  color: var(--moss-light);
+  margin: 0 0 1.5rem;
+}
+
+.hero .event-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  margin-bottom: 1.75rem;
+}
+
+.hero .event-meta span {
+  border-left: 2px solid var(--accent);
+  padding-left: 0.6rem;
+}
+
+.hero .event-meta span:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: #ecab5b;
+  color: var(--ink);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--cream-dim);
+  color: var(--cream);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Sections */
+
+main {
+  padding: 2.5rem 0 3.5rem;
+}
+
+section + section {
+  margin-top: 2.75rem;
+}
+
+h2.section-title {
+  font-size: 1.6rem;
+  color: var(--forest);
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-intro {
+  max-width: 65ch;
+  color: #3c3c33;
+}
+
+/* Cards / grids */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--cream-dim);
+  border-left: 5px solid var(--moss);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--forest);
+}
+
+.card .meta {
+  font-size: 0.85rem;
+  color: var(--bark);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+/* Schedule table */
+
+.schedule-day {
+  margin-bottom: 2rem;
+}
+
+.schedule-day h3 {
+  color: var(--forest);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+table.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+table.schedule-table th,
+table.schedule-table td {
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--cream-dim);
+}
+
+table.schedule-table th {
+  background: var(--forest);
+  color: var(--cream);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+table.schedule-table tr:last-child td {
+  border-bottom: none;
+}
+
+table.schedule-table td.time {
+  white-space: nowrap;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+/* Sponsor tiers */
+
+.tier-heading {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bark);
+  font-weight: 700;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.tier-heading:first-of-type {
+  margin-top: 0;
+}
+
+/* Forms */
+
+form.static-form {
+  background: #fff;
+  border: 1px solid var(--cream-dim);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 640px;
+}
+
+form.static-form .field {
+  margin-bottom: 1rem;
+}
+
+form.static-form label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: var(--forest);
+}
+
+form.static-form input,
+form.static-form select,
+form.static-form textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #cfc8b0;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+form.static-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--bark);
+  background: var(--cream-dim);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Footer */
+
+.site-footer {
+  background: var(--forest-dark);
+  color: var(--cream-dim);
+  font-size: 0.85rem;
+  padding: 2rem 0;
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer a {
+  color: var(--moss-light);
+}
+
+@media (max-width: 560px) {
+  .site-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

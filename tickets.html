@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[[EVENT_NAME]] — Tickets &amp; Get Involved</title>
+<meta name="description" content="Ticket options, volunteering and sponsorship for [[EVENT_NAME]] in [[EVENT_TOWN]].">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="placeholder-banner">
+  DRAFT SCAFFOLD — ticket prices, links and form below are placeholders. Search this file for <code>[[ ]]</code> tokens to replace.
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">🦶</span>
+      <span class="brand-text">[[EVENT_NAME]]<small>[[EVENT_TOWN]] · [[EVENT_DATES]]</small></span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="vendors.html">Stalls &amp; Sponsors</a>
+      <a href="tickets.html" aria-current="page">Tickets &amp; Get Involved</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="tickets">
+    <h2 class="section-title">Tickets</h2>
+    <p class="section-intro">
+      Replace with real pricing and a link to your actual ticketing platform
+      (e.g. Eventbrite, Humanitix, Trybooking) once set up. Entry may end up being free
+      with paid add-ons — adjust the cards below either way.
+    </p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="meta">Weekend entry</div>
+        <h3>[[TICKET_PRICE_WEEKEND]]</h3>
+        <p>Gate entry for both days. Under [[CHILD_AGE_LIMIT]]s free.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Single day</div>
+        <h3>[[TICKET_PRICE_DAY]]</h3>
+        <p>Entry for Saturday or Sunday only.</p>
+      </div>
+      <div class="card">
+        <div class="meta">Family pass</div>
+        <h3>[[TICKET_PRICE_FAMILY]]</h3>
+        <p>2 adults + [[N]] children, both days.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.25rem;">
+      <a class="btn btn-primary" href="[[TICKETING_LINK]]">Buy tickets — external link</a>
+    </p>
+  </section>
+
+  <section id="volunteer">
+    <h2 class="section-title">Volunteer</h2>
+    <p class="section-intro">
+      [[EVENT_NAME]] runs on volunteers — gate duty, stallholder support, car parking
+      and pack-down. Register interest below.
+    </p>
+  </section>
+
+  <section id="get-involved-form">
+    <div class="form-note">
+      This form does not submit anywhere yet — it is a placeholder for the final
+      registration method (embedded form, mailto link, or third-party form tool).
+      Wire it up once you've chosen a submission approach.
+    </div>
+    <form class="static-form" onsubmit="return false;">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="field">
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest">
+          <option value="volunteer">Volunteering</option>
+          <option value="stallholder">Being a stallholder</option>
+          <option value="sponsor">Sponsoring the event</option>
+          <option value="sighting">Sharing a Yowie sighting story</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Details</label>
+        <textarea id="message" name="message" placeholder="Tell us a bit more..."></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit interest</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>&copy; <span id="year">2026</span> [[EVENT_NAME]]. Community event, not-for-profit.</div>
+    <div><a href="tickets.html">Volunteer or sponsor</a> · <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

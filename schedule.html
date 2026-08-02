@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[[EVENT_NAME]] — Schedule</title>
+<meta name="description" content="Full weekend program for [[EVENT_NAME]] in [[EVENT_TOWN]].">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="placeholder-banner">
+  DRAFT SCAFFOLD — all times and activities below are placeholders. Search this file for <code>[[ ]]</code> tokens to replace.
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">🦶</span>
+      <span class="brand-text">[[EVENT_NAME]]<small>[[EVENT_TOWN]] · [[EVENT_DATES]]</small></span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="schedule.html" aria-current="page">Schedule</a>
+      <a href="vendors.html">Stalls &amp; Sponsors</a>
+      <a href="tickets.html">Tickets &amp; Get Involved</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="schedule-intro">
+    <h2 class="section-title">Weekend program</h2>
+    <p class="section-intro">
+      Draft running order below — replace times, activity names and locations once the
+      program is finalised. Add or remove rows as needed.
+    </p>
+  </section>
+
+  <section id="day-one">
+    <div class="schedule-day">
+      <h3>Day 1 — Saturday, [[DAY_1_DATE]]</h3>
+      <table class="schedule-table">
+        <thead>
+          <tr><th>Time</th><th>Activity</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="time">9:00 am</td><td>Gates open, markets begin</td><td>[[EVENT_VENUE]]</td></tr>
+          <tr><td class="time">10:00 am</td><td>Official welcome</td><td>Main Stage</td></tr>
+          <tr><td class="time">10:30 am</td><td>Yowie Walk &amp; Talk (guided bush walk)</td><td>[[TRAILHEAD_LOCATION]]</td></tr>
+          <tr><td class="time">1:00 pm</td><td>Local music &amp; entertainment</td><td>Main Stage</td></tr>
+          <tr><td class="time">3:00 pm</td><td>Kids' Yowie craft workshop</td><td>Community Hall</td></tr>
+          <tr><td class="time">5:00 pm</td><td>Markets close for the day</td><td>[[EVENT_VENUE]]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="day-two">
+    <div class="schedule-day">
+      <h3>Day 2 — Sunday, [[DAY_2_DATE]]</h3>
+      <table class="schedule-table">
+        <thead>
+          <tr><th>Time</th><th>Activity</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="time">9:00 am</td><td>Gates open, markets resume</td><td>[[EVENT_VENUE]]</td></tr>
+          <tr><td class="time">11:00 am</td><td>Yowie Call Competition heats</td><td>Main Stage</td></tr>
+          <tr><td class="time">1:00 pm</td><td>Community lunch</td><td>Community Hall</td></tr>
+          <tr><td class="time">2:30 pm</td><td>Yowie Call Competition final</td><td>Main Stage</td></tr>
+          <tr><td class="time">3:30 pm</td><td>Raffle draw &amp; presentations</td><td>Main Stage</td></tr>
+          <tr><td class="time">4:00 pm</td><td>Weekend wrap-up</td><td>[[EVENT_VENUE]]</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="schedule-notes">
+    <h2 class="section-title">Good to know</h2>
+    <p class="section-intro">
+      Program is subject to change. Add notes here on accessibility, weather contingency,
+      and which activities need pre-booking (link through to <a href="tickets.html">Tickets &amp; Get Involved</a>).
+    </p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div>&copy; <span id="year">2026</span> [[EVENT_NAME]]. Community event, not-for-profit.</div>
+    <div><a href="tickets.html">Volunteer or sponsor</a> · <a href="mailto:[[CONTACT_EMAIL]]">[[CONTACT_EMAIL]]</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

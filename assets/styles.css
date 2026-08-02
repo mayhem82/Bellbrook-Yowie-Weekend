@@ -470,6 +470,24 @@ table.schedule-table td.time {
   margin-top: 0;
 }
 
+/* Activity illustrations — a little Yowie silhouette scene per detail page */
+
+.activity-illustration {
+  max-width: 300px;
+  margin: 0 0 1.75rem;
+  background: var(--cream);
+  border: 1px solid var(--cream-dim);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(20, 40, 38, 0.12);
+}
+
+.activity-illustration svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Forms */
 
 form.static-form {

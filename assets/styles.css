@@ -354,6 +354,8 @@ h2.section-title {
 }
 
 .card {
+  position: relative;
+  overflow: hidden;
   background: var(--cream);
   color: var(--ink);
   border: 1px solid var(--cream-dim);
@@ -361,6 +363,29 @@ h2.section-title {
   border-radius: var(--radius);
   padding: 1.25rem 1.4rem;
   box-shadow: 0 4px 14px rgba(20, 40, 38, 0.12);
+}
+
+.card-silhouette {
+  position: absolute;
+  right: -12px;
+  bottom: -8px;
+  height: 120px;
+  max-width: 60%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom right;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-silhouette.flip {
+  transform: scaleX(-1);
+}
+
+.card-body {
+  position: relative;
+  z-index: 1;
 }
 
 .card h3 {

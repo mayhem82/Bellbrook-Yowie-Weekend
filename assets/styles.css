@@ -173,14 +173,47 @@ img {
   z-index: 1;
 }
 
-.hero-sasquatch {
-  position: absolute;
-  right: 4%;
-  bottom: 40px;
-  width: 90px;
-  height: auto;
-  opacity: 0.9;
-  z-index: 1;
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2.5rem;
+  text-align: left;
+}
+
+.hero-copy .event-meta,
+.hero-copy .button-row {
+  justify-content: flex-start;
+}
+
+.hero-poster img {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  border: 3px solid var(--wood-dark);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transform: rotate(1deg);
+}
+
+@media (max-width: 760px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-copy .event-meta,
+  .hero-copy .button-row {
+    justify-content: center;
+  }
+
+  .hero-poster {
+    order: -1;
+  }
+
+  .hero-poster img {
+    max-width: 280px;
+  }
 }
 
 .hero h1 {

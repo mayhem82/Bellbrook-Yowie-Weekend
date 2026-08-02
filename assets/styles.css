@@ -470,22 +470,27 @@ table.schedule-table td.time {
   margin-top: 0;
 }
 
-/* Activity illustrations — a little Yowie silhouette scene per detail page */
+/* Activity illustrations — the official poster's Yowie cutout, reused per detail page */
 
 .activity-illustration {
-  max-width: 300px;
+  max-width: 220px;
   margin: 0 0 1.75rem;
   background: var(--cream);
   border: 1px solid var(--cream-dim);
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: 0 4px 14px rgba(20, 40, 38, 0.12);
+  text-align: center;
 }
 
-.activity-illustration svg {
-  width: 100%;
+.activity-illustration img {
+  max-width: 100%;
   height: auto;
-  display: block;
+  margin: 0 auto;
+}
+
+.activity-illustration img.flip {
+  transform: scaleX(-1);
 }
 
 /* Forms */

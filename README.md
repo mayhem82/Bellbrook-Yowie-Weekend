@@ -7,9 +7,10 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 ## Status
 
 Core event details are confirmed (name, tagline, dates, town, cause, and the
-weekend's activity list). Still to fill in: exact venue address, day-by-day
-times, stallholder/sponsor names, ticket and camping prices, and a contact
-email.
+weekend's activity list). Entry is free — stalls and activities are run by
+local community clubs and groups as their own fundraisers. Still to fill in:
+exact venue address, day-by-day times, stallholder/sponsor names, any camping
+fee, and a contact email.
 
 ## Structure
 
@@ -17,7 +18,7 @@ email.
 index.html      Home / about the event
 schedule.html   Weekend program (Day 1 / Day 2 / Day 3 tables)
 vendors.html    Market stalls, food vendors, sponsors
-tickets.html    Ticket options, camping, volunteering, "get involved" form
+tickets.html    Free entry, camping, volunteering, "get involved" form
 assets/
   styles.css    Shared styling for all pages
 ```
@@ -28,8 +29,6 @@ Every page uses `[[TOKEN]]` markers for content that isn't decided yet. Search
 the whole repo for `[[` to find them all, e.g.:
 
 - `[[FISHING_LOCATION]]` — where the fishing competition is held
-- `[[TICKET_PRICE_WEEKEND]]`, `[[TICKET_PRICE_DAY]]`, `[[TICKET_PRICE_FAMILY]]`, `[[CAMPING_PRICE]]`, `[[TICKETING_LINK]]`
-- `[[CHILD_AGE_LIMIT]]`, `[[N]]` — free-entry age cutoff and family pass child count
 - `[[VENDOR_NAME_*]]`, `[[SPONSOR_NAME_*]]` — stallholder and sponsor names
 - `[[CONTACT_EMAIL]]`
 

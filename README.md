@@ -6,11 +6,11 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 
 ## Status
 
-Core event details are confirmed (name, tagline, dates, town, cause, and the
-weekend's activity list). Entry is free — stalls and activities are run by
-local community clubs and groups as their own fundraisers. Still to fill in:
-exact venue address, day-by-day times, stallholder/sponsor names, any camping
-fee, and a contact email.
+Core event details are confirmed (name, tagline, dates, venue, town, cause,
+and the weekend's activity list). Entry is free — stalls and activities are
+run by local community clubs and groups as their own fundraisers. Still to
+fill in: day-by-day times, stallholder/sponsor names, any camping fee, and a
+contact email.
 
 ## Structure
 

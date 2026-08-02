@@ -17,6 +17,7 @@ activities, stallholder/sponsor names, and any camping fee.
 ```
 index.html      Home / about the event
 schedule.html   Weekend program (Day 1 / Day 2 / Day 3 tables)
+safety.html     Emergency info, first aid, weather, fire, alcohol, access
 vendors.html    Market stalls, food vendors, sponsors
 tickets.html    Free entry, camping, volunteering, "get involved" form
 assets/

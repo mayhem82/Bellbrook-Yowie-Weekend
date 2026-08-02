@@ -7,10 +7,10 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 ## Status
 
 Core event details are confirmed (name, tagline, dates, venue, town, cause,
-and the weekend's activity list). Entry is free — stalls and activities are
-run by local community clubs and groups as their own fundraisers. Still to
-fill in: day-by-day times, stallholder/sponsor names, any camping fee, and a
-contact email.
+contact email, market days/hours, and the weekend's activity list). Entry is
+free — stalls and activities are run by local community clubs and groups as
+their own fundraisers. Still to fill in: day-by-day times for non-market
+activities, stallholder/sponsor names, and any camping fee.
 
 ## Structure
 
@@ -30,7 +30,6 @@ the whole repo for `[[` to find them all, e.g.:
 
 - `[[FISHING_LOCATION]]` — where the fishing competition is held
 - `[[VENDOR_NAME_*]]`, `[[SPONSOR_NAME_*]]` — stallholder and sponsor names
-- `[[CONTACT_EMAIL]]`
 
 Exact times weren't on the event poster, so `schedule.html` uses "TBC" in the
 time column — replace those once the official running order is published.

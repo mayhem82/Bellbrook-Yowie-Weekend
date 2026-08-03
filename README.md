@@ -34,6 +34,7 @@ Every page uses `[[TOKEN]]` markers for content that isn't decided yet. Search
 the whole repo for `[[` to find them all, e.g.:
 
 - `[[FISHING_LOCATION]]` — where the fishing competition is held
+- `[[FIRST_AID_LOCATION]]` — first aid point and provider, on `safety.html`
 - `[[VENDOR_NAME_*]]`, `[[SPONSOR_NAME_*]]` — stallholder and sponsor names
 
 Exact times weren't on the event poster, so `schedule.html` uses "TBC" in the

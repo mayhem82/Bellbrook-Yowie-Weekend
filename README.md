@@ -19,7 +19,11 @@ index.html      Home / about the event
 schedule.html   Weekend program (Day 1 / Day 2 / Day 3 tables)
 safety.html     Emergency info, first aid, weather, fire, alcohol, access
 vendors.html    Market stalls, food vendors, sponsors
-tickets.html    Free entry, camping, volunteering, "get involved" form
+camping.html, whip-cracking-display.html, live-music.html,
+face-painting.html, wood-chopping-competition.html,
+fishing-competition.html
+                Individual activity pages, linked from the poster and
+                the homepage highlight cards
 assets/
   styles.css    Shared styling for all pages
 ```
@@ -41,9 +45,9 @@ A quick way to replace one token everywhere once you have the real value:
 grep -rl '\[\[EVENT_NAME\]\]' . | xargs sed -i 's/\[\[EVENT_NAME\]\]/Your Real Event Name/g'
 ```
 
-The "get involved" form on `tickets.html` doesn't submit anywhere yet — it's a
-placeholder until you pick a real submission method (embedded form service,
-mailto link, or similar).
+There's no contact form on the site — every "get involved" call to action is a
+plain `mailto:` link to `bellbrook.yowie.fest@gmail.com`, so there's nothing to
+wire up.
 
 ## Running locally
 

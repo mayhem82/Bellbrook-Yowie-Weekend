@@ -276,6 +276,24 @@ h2.section-title {
   color: #3c3c33;
 }
 
+.email-cta {
+  margin: 0.25rem 0 0;
+}
+
+.email-cta a {
+  display: inline-block;
+  font-size: clamp(1.05rem, 4vw, 1.3rem);
+  font-weight: 700;
+  color: var(--accent-dark);
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.email-cta a:hover {
+  color: var(--forest);
+}
+
 /* Full-bleed panel for breaking a section out of .container's max-width */
 
 .panel-sunburst {

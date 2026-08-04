@@ -14,8 +14,11 @@ activities, stallholder/sponsor names, and any camping fee.
 
 Entertainment lineup is still being finalised by the committee. Confirmed so
 far: whip cracking, trick pony and donkeys with Laughing Stock Productions
-(Saturday); a bucking bull organised by The Bellbrook Hotel (day/time TBC).
-Kids' activities are still being organised.
+(Saturday); a bucking bull organised by The Bellbrook Hotel (day/time TBC); a
+Yowie Hunt along Postman's Trail (~2hr car-drive activity, day/time TBC); and
+Slim Dusty Tours organised by Kate (times TBC). The Saturday/Sunday live music
+running order is confirmed — see `schedule.html`'s Live Music Lineup section;
+Friday's lineup is still a draft. Kids' activities are still being organised.
 
 ## Structure
 

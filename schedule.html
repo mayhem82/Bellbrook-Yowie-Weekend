@@ -110,7 +110,7 @@
 
   <section id="festival-map">
     <h2 class="section-title">Find your way around</h2>
-    <div id="festival-map-embed" class="map-embed" role="img" aria-label="Map of the festival area showing pins for The Bellbrook Hotel and the camping paddock (marked with the Yowie-in-a-tent icon), plus several small placeholder pins spaced along the river standing in for the fishing competition, whose exact spot is still to be confirmed"></div>
+    <div id="festival-map-embed" class="map-embed" role="img" aria-label="Map of the festival area showing pins for The Bellbrook Hotel, the camping paddock, market stalls along Main Street, wood chopping, whip cracking, face painting, live music and a fishing spot near the river. Estimated positions for everything except the hotel and camping, not yet confirmed"></div>
   </section>
 
 </main>
@@ -129,19 +129,30 @@
   // The Bellbrook Hotel: exact coordinates from a Google Earth dropped pin
   // (30°49'07.29"S 152°30'43.61"E).
   var hotelSpot = [-30.818692, 152.512114];
-  // Fishing isn't a single confirmed spot yet — it happens somewhere along the
-  // river, not in the paddock. Instead of implying false precision with one pin,
-  // scatter a few placeholder pins roughly 100m apart along the river's path.
-  // Replace with a real point (or a highlighted stretch) once confirmed.
+  // Fishing, markets, wood chopping, whip cracking, face painting and live music:
+  // estimated from a screenshot of a real OpenStreetMap view, using the exact
+  // hotel coordinates above as an anchor. Good for layout, not survey-precise —
+  // replace with real coordinates once confirmed.
   var fishingSpots = [
-    [-30.82150, 152.51550],
-    [-30.82170, 152.51660],
-    [-30.82190, 152.51770],
-    [-30.82210, 152.51880]
+    [-30.819866, 152.508801]
   ];
+  var marketSpots = [
+    [-30.813738, 152.506456],
+    [-30.815366, 152.507804],
+    [-30.815709, 152.509400],
+    [-30.816223, 152.510248],
+    [-30.816737, 152.512044]
+  ];
+  var woodSpot = [-30.817483, 152.512094];
+  var whipSpot = [-30.817423, 152.513162];
+  var facepaintSpot = [-30.818023, 152.510777];
+  var musicSpot = [-30.818752, 152.510398];
+
+  var allSpots = [campingSpot, hotelSpot]
+    .concat(fishingSpots, marketSpots, [woodSpot, whipSpot, facepaintSpot, musicSpot]);
 
   var festivalMap = L.map('festival-map-embed', { scrollWheelZoom: false });
-  festivalMap.fitBounds([campingSpot, hotelSpot].concat(fishingSpots), { padding: [60, 60], maxZoom: 15 });
+  festivalMap.fitBounds(allSpots, { padding: [60, 60], maxZoom: 16 });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -167,6 +178,36 @@
     iconAnchor: [15, 19],
     popupAnchor: [0, -19]
   });
+  var marketIcon = L.icon({
+    iconUrl: 'assets/img/yowie-markets.png',
+    iconSize: [30, 22],
+    iconAnchor: [15, 20],
+    popupAnchor: [0, -20]
+  });
+  var woodIcon = L.icon({
+    iconUrl: 'assets/img/yowie-wood-chopping.png',
+    iconSize: [24, 30],
+    iconAnchor: [12, 28],
+    popupAnchor: [0, -28]
+  });
+  var whipIcon = L.icon({
+    iconUrl: 'assets/img/yowie-whip-cracking.png',
+    iconSize: [30, 30],
+    iconAnchor: [15, 28],
+    popupAnchor: [0, -28]
+  });
+  var facepaintIcon = L.icon({
+    iconUrl: 'assets/img/yowie-face-painting.png',
+    iconSize: [22, 30],
+    iconAnchor: [11, 28],
+    popupAnchor: [0, -28]
+  });
+  var musicIcon = L.icon({
+    iconUrl: 'assets/img/yowie-guitar-cutout.png',
+    iconSize: [30, 28],
+    iconAnchor: [15, 26],
+    popupAnchor: [0, -26]
+  });
 
   L.marker(campingSpot, { icon: yowieCampingIcon }).addTo(festivalMap)
     .bindPopup('Camping &mdash; The Yowie Festival').openPopup();
@@ -174,8 +215,20 @@
     .bindPopup('The Bellbrook Hotel &mdash; festival venue');
   fishingSpots.forEach(function (spot) {
     L.marker(spot, { icon: fishingIcon }).addTo(festivalMap)
-      .bindPopup('Fishing Comp&rsquo; &mdash; somewhere along this stretch of river. Not a confirmed spot yet.');
+      .bindPopup('Fishing Comp&rsquo; &mdash; estimated spot, not confirmed yet.');
   });
+  marketSpots.forEach(function (spot) {
+    L.marker(spot, { icon: marketIcon }).addTo(festivalMap)
+      .bindPopup('Market stall &mdash; estimated spot along Main Street.');
+  });
+  L.marker(woodSpot, { icon: woodIcon }).addTo(festivalMap)
+    .bindPopup('Wood Chopping Competition &mdash; estimated spot.');
+  L.marker(whipSpot, { icon: whipIcon }).addTo(festivalMap)
+    .bindPopup('Whip Cracking Display &mdash; estimated spot.');
+  L.marker(facepaintSpot, { icon: facepaintIcon }).addTo(festivalMap)
+    .bindPopup('Face Painting &mdash; estimated spot.');
+  L.marker(musicSpot, { icon: musicIcon }).addTo(festivalMap)
+    .bindPopup('Live Music &mdash; estimated spot.');
 </script>
 
 </body>

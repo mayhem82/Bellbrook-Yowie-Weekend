@@ -77,12 +77,60 @@
   }
   .planner-list div { margin: 0.25rem 0; }
   .planner-list .empty { opacity: 0.6; font-style: italic; }
+
+  .planner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  .planner-action-btn {
+    background: var(--accent);
+    color: var(--forest-dark);
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 1.1rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .planner-action-btn:hover { background: var(--accent-light); }
+  .planner-action-btn.secondary {
+    background: transparent;
+    color: var(--forest-dark);
+    border: 1px solid var(--forest-dark);
+  }
+  .planner-saved-indicator {
+    font-size: 0.8rem;
+    color: var(--forest-mid);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .planner-saved-indicator.show { opacity: 1; }
+  .planner-export {
+    display: none;
+    margin-top: 0.75rem;
+  }
+  .planner-export.show { display: block; }
+  .planner-export textarea {
+    width: 100%;
+    min-height: 220px;
+    font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+    font-size: 0.85rem;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--cream-dim);
+    background: var(--cream);
+    color: var(--ink);
+    resize: vertical;
+  }
 </style>
 </head>
 <body>
 
 <div class="placeholder-banner">
-  PLANNING TOOL — not linked from the site nav. Real OpenStreetMap tiles + your real icons, draggable. Use this to work out exact placement, then tell me the coordinates (or just leave the arrangement and ask me to read it).
+  PLANNING TOOL — not linked from the site nav. Real OpenStreetMap tiles + your real icons, draggable. Saves itself in this browser and exports exact coordinates you can paste to Claude — no screenshots needed.
 </div>
 
 <header class="site-header">
@@ -99,9 +147,10 @@
     <h1 class="section-title">Map planner</h1>
     <p class="section-intro">
       Real OpenStreetMap tiles, your real activity icons. Tap a button to drop a pin of
-      that type, drag it to where it really belongs, and use the coordinate list below
-      to read exact lat/long &mdash; or just leave it arranged and tell me to read it off
-      the map.
+      that type, drag it to where it really belongs. Your arrangement saves itself in
+      this browser automatically, so it's still here next time you open the page. When
+      you're happy with it, tap <strong>Export for Claude</strong> and paste the result
+      straight into the chat &mdash; exact coordinates, no screenshots needed.
     </p>
 
     <div class="planner-toolbar" id="toolbar">
@@ -116,6 +165,23 @@
     </div>
 
     <div id="planner-map"></div>
+
+    <div class="planner-actions">
+      <button type="button" class="planner-action-btn" id="exportBtn">Export for Claude</button>
+      <button type="button" class="planner-action-btn secondary" id="clearBtn">Clear all pins</button>
+      <span class="planner-saved-indicator" id="savedIndicator">Saved &mdash; will still be here next time you open this page</span>
+    </div>
+
+    <div class="planner-export" id="exportPanel">
+      <p class="section-intro" style="margin-bottom:0.5rem;">
+        Copy this and paste it straight into the chat &mdash; exact coordinates, no
+        screenshots needed.
+      </p>
+      <textarea id="exportText" readonly></textarea>
+      <div class="planner-actions">
+        <button type="button" class="planner-action-btn" id="copyBtn">Copy to clipboard</button>
+      </div>
+    </div>
 
     <div class="planner-list" id="plannerList">
       <div class="empty">Pins you place will be listed here with live coordinates&hellip;</div>
@@ -147,6 +213,7 @@
 
   var markers = [];
   var listEl = document.getElementById('plannerList');
+  var STORAGE_KEY = 'yowieMapPlannerState';
 
   function iconFor(type) {
     var d = ICON_DEFS[type];
@@ -170,7 +237,40 @@
     }).join('');
   }
 
-  function addMarker(type, latlng) {
+  var saveTimer = null;
+  function saveState() {
+    try {
+      var data = markers.map(function (m) {
+        var p = m.marker.getLatLng();
+        return { type: m.type, lat: p.lat, lng: p.lng };
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      var el = document.getElementById('savedIndicator');
+      el.classList.add('show');
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(function () { el.classList.remove('show'); }, 1800);
+    } catch (e) {
+      console.error('Could not save planner state:', e);
+    }
+  }
+
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      var data = JSON.parse(raw);
+      if (!Array.isArray(data) || !data.length) return false;
+      data.forEach(function (d) {
+        if (ICON_DEFS[d.type]) addMarker(d.type, [d.lat, d.lng], true);
+      });
+      return true;
+    } catch (e) {
+      console.error('Could not load saved planner state:', e);
+      return false;
+    }
+  }
+
+  function addMarker(type, latlng, skipSave) {
     var marker = L.marker(latlng, { icon: iconFor(type), draggable: true }).addTo(map);
     var entry = { type: type, marker: marker };
     markers.push(entry);
@@ -183,13 +283,18 @@
           map.removeLayer(marker);
           markers = markers.filter(function (m) { return m !== entry; });
           refreshList();
+          saveState();
         });
       }
     });
     marker.on('drag', refreshList);
-    marker.on('dragend', refreshList);
+    marker.on('dragend', function () {
+      refreshList();
+      saveState();
+    });
 
     refreshList();
+    if (!skipSave) saveState();
   }
 
   document.querySelectorAll('.planner-add-btn').forEach(function (btn) {
@@ -200,8 +305,58 @@
     });
   });
 
-  addMarker('hotel', hotelSpot);
-  addMarker('camping', campingSpot);
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    if (markers.length && !confirm('Remove all pins? This clears the saved arrangement too.')) return;
+    markers.forEach(function (m) { map.removeLayer(m.marker); });
+    markers = [];
+    refreshList();
+    saveState();
+    document.getElementById('exportPanel').classList.remove('show');
+  });
+
+  document.getElementById('exportBtn').addEventListener('click', function () {
+    var lines = markers.map(function (m) {
+      var p = m.marker.getLatLng();
+      return ICON_DEFS[m.type].label + ': ' + p.lat.toFixed(6) + ', ' + p.lng.toFixed(6);
+    });
+    var text = markers.length
+      ? lines.join('\n')
+      : '(No pins placed yet.)';
+    var panel = document.getElementById('exportPanel');
+    var textarea = document.getElementById('exportText');
+    textarea.value = text;
+    panel.classList.add('show');
+    textarea.focus();
+    textarea.select();
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var textarea = document.getElementById('exportText');
+    textarea.focus();
+    textarea.select();
+    var btn = document.getElementById('copyBtn');
+    function flash(label) {
+      var original = btn.textContent;
+      btn.textContent = label;
+      setTimeout(function () { btn.textContent = original; }, 1500);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(textarea.value).then(function () {
+        flash('Copied!');
+      }, function () {
+        document.execCommand('copy');
+        flash('Copied!');
+      });
+    } else {
+      document.execCommand('copy');
+      flash('Copied!');
+    }
+  });
+
+  if (!loadState()) {
+    addMarker('hotel', hotelSpot, true);
+    addMarker('camping', campingSpot, true);
+  }
 </script>
 
 </body>

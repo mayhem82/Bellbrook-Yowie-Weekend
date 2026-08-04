@@ -183,7 +183,7 @@
 
   <section id="festival-map">
     <h2 class="section-title">Find your way around</h2>
-    <div id="festival-map-embed" class="map-embed" role="img" aria-label="Map of the festival area showing pins for The Bellbrook Hotel, the camping paddock, market stalls along Main Street, wood chopping, whip cracking, face painting, live music and a fishing spot near the river. Estimated positions for everything except the hotel and camping, not yet confirmed"></div>
+    <div id="festival-map-embed" class="map-embed" role="img" aria-label="Map of the festival area showing pins for The Bellbrook Hotel, camping, market stalls along Main Street, wood chopping, whip cracking, face painting, live music and fishing spots along the river, all placed by the event organisers"></div>
   </section>
 
 </main>
@@ -197,32 +197,39 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-  // Camping: exact coordinates, given by event organisers.
-  var campingSpot = [-30.819269, 152.513592];
-  // The Bellbrook Hotel: exact coordinates from a Google Earth dropped pin
-  // (30°49'07.29"S 152°30'43.61"E).
-  var hotelSpot = [-30.818692, 152.512114];
-  // Fishing, markets, wood chopping, whip cracking, face painting and live music:
-  // estimated from a screenshot of a real OpenStreetMap view, using the exact
-  // hotel coordinates above as an anchor. Good for layout, not survey-precise —
-  // replace with real coordinates once confirmed.
+  // Everything below is exact, exported straight from the map planner tool
+  // (map-planner.html) — no screenshot estimation involved.
+  var campingSpots = [
+    [-30.819269, 152.513592],
+    [-30.818491, 152.513942],
+    [-30.818702, 152.515325]
+  ];
+  var hotelSpots = [
+    [-30.820443, 152.511581],
+    [-30.820461, 152.512084]
+  ];
   var fishingSpots = [
-    [-30.819866, 152.508801]
+    [-30.820458, 152.507598],
+    [-30.822618, 152.513653],
+    [-30.821142, 152.509930]
   ];
   var marketSpots = [
-    [-30.813738, 152.506456],
-    [-30.815366, 152.507804],
-    [-30.815709, 152.509400],
-    [-30.816223, 152.510248],
-    [-30.816737, 152.512044]
+    [-30.819458, 152.510436],
+    [-30.819316, 152.510215],
+    [-30.819149, 152.509982],
+    [-30.818321, 152.508571],
+    [-30.819239, 152.509227]
   ];
-  var woodSpot = [-30.817483, 152.512094];
-  var whipSpot = [-30.817423, 152.513162];
-  var facepaintSpot = [-30.818023, 152.510777];
-  var musicSpot = [-30.818752, 152.510398];
+  var musicSpots = [
+    [-30.820439, 152.510555],
+    [-30.820759, 152.511772]
+  ];
+  var woodSpot = [-30.820319, 152.512132];
+  var whipSpot = [-30.820263, 152.511575];
+  var facepaintSpot = [-30.820154, 152.511082];
 
-  var allSpots = [campingSpot, hotelSpot]
-    .concat(fishingSpots, marketSpots, [woodSpot, whipSpot, facepaintSpot, musicSpot]);
+  var allSpots = campingSpots
+    .concat(hotelSpots, fishingSpots, marketSpots, musicSpots, [woodSpot, whipSpot, facepaintSpot]);
 
   var festivalMap = L.map('festival-map-embed', { scrollWheelZoom: false });
   festivalMap.fitBounds(allSpots, { padding: [60, 60], maxZoom: 16 });
@@ -282,26 +289,33 @@
     popupAnchor: [0, -26]
   });
 
-  L.marker(campingSpot, { icon: yowieCampingIcon }).addTo(festivalMap)
-    .bindPopup('Camping &mdash; The Yowie Festival').openPopup();
-  L.marker(hotelSpot, { icon: hotelIcon }).addTo(festivalMap)
-    .bindPopup('The Bellbrook Hotel &mdash; festival venue');
+  campingSpots.forEach(function (spot, i) {
+    var m = L.marker(spot, { icon: yowieCampingIcon }).addTo(festivalMap)
+      .bindPopup('Camping &mdash; The Yowie Festival');
+    if (i === 0) m.openPopup();
+  });
+  hotelSpots.forEach(function (spot) {
+    L.marker(spot, { icon: hotelIcon }).addTo(festivalMap)
+      .bindPopup('The Bellbrook Hotel &mdash; festival venue');
+  });
   fishingSpots.forEach(function (spot) {
     L.marker(spot, { icon: fishingIcon }).addTo(festivalMap)
-      .bindPopup('Fishing Comp&rsquo; &mdash; estimated spot, not confirmed yet.');
+      .bindPopup('Fishing Comp&rsquo; &mdash; not confirmed yet.');
   });
   marketSpots.forEach(function (spot) {
     L.marker(spot, { icon: marketIcon }).addTo(festivalMap)
-      .bindPopup('Market stall &mdash; estimated spot along Main Street.');
+      .bindPopup('Market stall &mdash; along Main Street.');
+  });
+  musicSpots.forEach(function (spot) {
+    L.marker(spot, { icon: musicIcon }).addTo(festivalMap)
+      .bindPopup('Live Music &mdash; Main Stage.');
   });
   L.marker(woodSpot, { icon: woodIcon }).addTo(festivalMap)
-    .bindPopup('Wood Chopping Competition &mdash; estimated spot.');
+    .bindPopup('Wood Chopping Competition.');
   L.marker(whipSpot, { icon: whipIcon }).addTo(festivalMap)
-    .bindPopup('Whip Cracking Display &mdash; Laughing Stock Productions. Estimated spot.');
+    .bindPopup('Whip Cracking Display &mdash; Laughing Stock Productions.');
   L.marker(facepaintSpot, { icon: facepaintIcon }).addTo(festivalMap)
-    .bindPopup('Face Painting &mdash; estimated spot.');
-  L.marker(musicSpot, { icon: musicIcon }).addTo(festivalMap)
-    .bindPopup('Live Music &mdash; estimated spot.');
+    .bindPopup('Face Painting.');
 </script>
 
 </body>

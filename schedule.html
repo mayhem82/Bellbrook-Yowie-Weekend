@@ -128,10 +128,11 @@
   var campingSpot = [-30.819269, 152.513592];
   // The Bellbrook Hotel and the fishing spot are approximate — Google's pin for the
   // hotel and the bridge don't expose exact coordinates from a screenshot alone.
-  // Placed in the same village cluster as the camping paddock; nudge these once
-  // exact long-press coordinates are available.
+  // Nudge these once exact long-press coordinates are available.
   var hotelSpot = [-30.81870, 152.51210];
-  var fishingSpot = [-30.81830, 152.51450];
+  // Fishing happens on the river, not in the camping paddock — placed south of
+  // Armidale Road (the paddock/hotel side), on the far side towards the water.
+  var fishingSpot = [-30.82060, 152.51430];
 
   var festivalMap = L.map('festival-map-embed', { scrollWheelZoom: false });
   festivalMap.fitBounds([campingSpot, hotelSpot, fishingSpot], { padding: [30, 30], maxZoom: 17 });

@@ -110,7 +110,7 @@
 
   <section id="festival-map">
     <h2 class="section-title">Find your way around</h2>
-    <div id="festival-map-embed" class="map-embed" role="img" aria-label="Map of the festival area showing three pins: The Bellbrook Hotel, the camping paddock marked with the Yowie-in-a-tent icon, and a placeholder pin for the fishing competition (exact location still to be confirmed)"></div>
+    <div id="festival-map-embed" class="map-embed" role="img" aria-label="Map of the festival area showing pins for The Bellbrook Hotel and the camping paddock (marked with the Yowie-in-a-tent icon), plus several small placeholder pins spaced along the river standing in for the fishing competition, whose exact spot is still to be confirmed"></div>
   </section>
 
 </main>
@@ -130,12 +130,19 @@
   // hotel and the bridge don't expose exact coordinates from a screenshot alone.
   // Nudge these once exact long-press coordinates are available.
   var hotelSpot = [-30.81870, 152.51210];
-  // Fishing happens on the river, not in the camping paddock — placed south of
-  // Armidale Road (the paddock/hotel side), on the far side towards the water.
-  var fishingSpot = [-30.82060, 152.51430];
+  // Fishing isn't a single confirmed spot yet — it happens somewhere along the
+  // river, not in the paddock. Instead of implying false precision with one pin,
+  // scatter a few placeholder pins roughly 100m apart along the river's path.
+  // Replace with a real point (or a highlighted stretch) once confirmed.
+  var fishingSpots = [
+    [-30.82150, 152.51550],
+    [-30.82170, 152.51660],
+    [-30.82190, 152.51770],
+    [-30.82210, 152.51880]
+  ];
 
   var festivalMap = L.map('festival-map-embed', { scrollWheelZoom: false });
-  festivalMap.fitBounds([campingSpot, hotelSpot, fishingSpot], { padding: [60, 60], maxZoom: 15 });
+  festivalMap.fitBounds([campingSpot, hotelSpot].concat(fishingSpots), { padding: [60, 60], maxZoom: 15 });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -157,17 +164,19 @@
   });
   var fishingIcon = L.icon({
     iconUrl: 'assets/img/yowie-fishing.png',
-    iconSize: [42, 30],
-    iconAnchor: [21, 27],
-    popupAnchor: [0, -27]
+    iconSize: [30, 21],
+    iconAnchor: [15, 19],
+    popupAnchor: [0, -19]
   });
 
   L.marker(campingSpot, { icon: yowieCampingIcon }).addTo(festivalMap)
     .bindPopup('Camping &mdash; The Yowie Festival').openPopup();
   L.marker(hotelSpot, { icon: hotelIcon }).addTo(festivalMap)
     .bindPopup('The Bellbrook Hotel &mdash; festival venue');
-  L.marker(fishingSpot, { icon: fishingIcon }).addTo(festivalMap)
-    .bindPopup('Fishing Comp&rsquo; &mdash; placeholder pin, exact location TBC. May become a highlighted river stretch once confirmed.');
+  fishingSpots.forEach(function (spot) {
+    L.marker(spot, { icon: fishingIcon }).addTo(festivalMap)
+      .bindPopup('Fishing Comp&rsquo; &mdash; somewhere along this stretch of river. Not a confirmed spot yet.');
+  });
 </script>
 
 </body>

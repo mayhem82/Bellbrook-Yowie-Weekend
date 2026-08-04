@@ -12,6 +12,11 @@ free — stalls and activities are run by local community clubs and groups as
 their own fundraisers. Still to fill in: day-by-day times for non-market
 activities, stallholder/sponsor names, and any camping fee.
 
+Entertainment lineup is still being finalised by the committee. Confirmed so
+far: whip cracking, trick pony and donkeys with Laughing Stock Productions
+(Saturday); a bucking bull organised by The Bellbrook Hotel (day/time TBC).
+Kids' activities are still being organised.
+
 ## Structure
 
 ```

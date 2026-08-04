@@ -51,9 +51,14 @@
       Check-in details, facilities and whether a camping fee applies are still to be
       confirmed. Email <a href="mailto:bellbrook.yowie.fest@gmail.com">bellbrook.yowie.fest@gmail.com</a> for updates.
     </p>
-    <div id="camping-map" class="map-embed" role="img" aria-label="Map showing the camping paddock, marked with the Yowie-in-a-tent icon"></div>
+    <div id="camping-map" class="map-embed" role="img" aria-label="Map of the festival area showing three pins: The Bellbrook Hotel, the camping paddock marked with the Yowie-in-a-tent icon, and an approximate fishing spot near the bridge"></div>
+    <ul class="map-legend" aria-hidden="true">
+      <li><img src="assets/img/sponsor-bellbrook-hotel.jpg" alt=""> The Bellbrook Hotel &mdash; festival hub</li>
+      <li><img src="assets/img/yowie-camping.png" alt=""> Camping paddock</li>
+      <li><img src="assets/img/yowie-fishing.png" alt=""> Fishing Comp&rsquo; &mdash; approx., near the bridge</li>
+    </ul>
     <p class="section-intro map-note">
-      📍 <a href="https://www.google.com/maps/search/?api=1&query=-30.819269,152.513592" target="_blank" rel="noopener">Open in Google Maps</a>
+      📍 <a href="https://www.google.com/maps/search/?api=1&query=-30.819269,152.513592" target="_blank" rel="noopener">Open camping in Google Maps</a>
     </p>
   </section>
 
@@ -68,20 +73,49 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
+  // Camping: exact coordinates, given by event organisers.
   var campingSpot = [-30.819269, 152.513592];
-  var campingMap = L.map('camping-map', { scrollWheelZoom: false }).setView(campingSpot, 17);
+  // The Bellbrook Hotel and the fishing spot are approximate — Google's pin for the
+  // hotel and the bridge don't expose exact coordinates from a screenshot alone.
+  // Placed in the same village cluster as the camping paddock; nudge these once
+  // exact long-press coordinates are available.
+  var hotelSpot = [-30.81870, 152.51210];
+  var fishingSpot = [-30.81830, 152.51450];
+
+  var campingMap = L.map('camping-map', { scrollWheelZoom: false });
+  campingMap.fitBounds([campingSpot, hotelSpot, fishingSpot], { padding: [30, 30], maxZoom: 17 });
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(campingMap);
+
   var yowieCampingIcon = L.icon({
     iconUrl: 'assets/img/yowie-camping.png',
     iconSize: [45, 21],
     iconAnchor: [23, 19],
     popupAnchor: [0, -19]
   });
+  var hotelIcon = L.icon({
+    iconUrl: 'assets/img/sponsor-bellbrook-hotel.jpg',
+    className: 'hotel-marker-icon',
+    iconSize: [34, 34],
+    iconAnchor: [17, 17],
+    popupAnchor: [0, -17]
+  });
+  var fishingIcon = L.icon({
+    iconUrl: 'assets/img/yowie-fishing.png',
+    iconSize: [42, 30],
+    iconAnchor: [21, 27],
+    popupAnchor: [0, -27]
+  });
+
   L.marker(campingSpot, { icon: yowieCampingIcon }).addTo(campingMap)
     .bindPopup('Camping &mdash; The Yowie Festival').openPopup();
+  L.marker(hotelSpot, { icon: hotelIcon }).addTo(campingMap)
+    .bindPopup('The Bellbrook Hotel &mdash; festival venue');
+  L.marker(fishingSpot, { icon: fishingIcon }).addTo(campingMap)
+    .bindPopup('Fishing Comp&rsquo; &mdash; approximate spot near the bridge, may become a highlighted river stretch');
 </script>
 
 </body>

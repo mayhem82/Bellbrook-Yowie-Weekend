@@ -9,8 +9,9 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 Core event details are confirmed (name, tagline, dates, venue, town, cause,
 contact email, market days/hours, and the weekend's activity list). Entry is
 free — stalls and activities are run by local community clubs and groups as
-their own fundraisers. Still to fill in: day-by-day times for non-market
-activities, stallholder/sponsor names, and any camping fee.
+their own fundraisers. Camping is hosted by Bellmeadow Homestead, with
+confirmed pricing and booking contact on `camping.html`. Still to fill in:
+day-by-day times for non-market activities, and stallholder/sponsor names.
 
 Entertainment lineup is still being finalised by the committee. Confirmed so
 far: whip cracking, trick pony and donkeys with Laughing Stock Productions

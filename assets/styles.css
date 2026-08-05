@@ -591,6 +591,16 @@ table.schedule-table td.time {
   transform: scaleX(-1);
 }
 
+.illustration-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.illustration-row .activity-illustration {
+  margin: 0 0 1.75rem;
+}
+
 /* Footer */
 
 .site-footer {

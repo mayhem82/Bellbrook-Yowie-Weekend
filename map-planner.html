@@ -66,6 +66,28 @@
     background: #fff;
     object-fit: cover;
   }
+  .planner-add-btn .emoji {
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    border-radius: 50%;
+    font-size: 15px;
+  }
+  .planner-emoji-pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 2px solid var(--forest-dark);
+    box-shadow: 0 1px 6px rgba(20, 40, 38, 0.45);
+    font-size: 17px;
+  }
   .planner-list {
     margin-top: 1rem;
     background: var(--forest-dark);
@@ -164,6 +186,9 @@
       <button class="planner-add-btn" data-type="camping"><img src="assets/img/yowie-camping.png" alt=""><span class="plus">+</span> Camping</button>
       <button class="planner-add-btn" data-type="rfs"><img src="assets/img/yowie-rfs.png" alt=""><span class="plus">+</span> RFS</button>
       <button class="planner-add-btn" data-type="food"><img src="assets/img/yowie-dining.png" alt=""><span class="plus">+</span> Food</button>
+      <button class="planner-add-btn" data-type="parking"><span class="emoji">🅿️</span><span class="plus">+</span> Parking</button>
+      <button class="planner-add-btn" data-type="park"><span class="emoji">🌳</span><span class="plus">+</span> Bellbrook Park</button>
+      <button class="planner-add-btn" data-type="kidsplay"><span class="emoji">🛝</span><span class="plus">+</span> Kids Play Area</button>
     </div>
 
     <div id="planner-map"></div>
@@ -203,7 +228,10 @@
     facepaint: { url: 'assets/img/yowie-face-painting.png',     size: [28, 38], anchor: [14, 36], label: 'Face Painting' },
     markets:   { url: 'assets/img/yowie-markets.png',           size: [40, 29], anchor: [20, 27], label: 'Markets' },
     rfs:       { url: 'assets/img/yowie-rfs.png',                size: [30, 30], anchor: [15, 28], label: 'RFS' },
-    food:      { url: 'assets/img/yowie-dining.png',             size: [28, 38], anchor: [14, 36], label: 'Food' }
+    food:      { url: 'assets/img/yowie-dining.png',             size: [28, 38], anchor: [14, 36], label: 'Food' },
+    parking:   { emoji: '🅿️', label: 'Parking' },
+    park:      { emoji: '🌳', label: 'Bellbrook Park' },
+    kidsplay:  { emoji: '🛝', label: 'Kids Play Area' }
   };
 
   var campingSpot = [-30.819269, 152.513592];
@@ -232,6 +260,15 @@
 
   function iconFor(type) {
     var d = ICON_DEFS[type];
+    if (d.emoji) {
+      return L.divIcon({
+        html: '<span class="planner-emoji-pin">' + d.emoji + '</span>',
+        className: '',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -16]
+      });
+    }
     return L.icon({
       iconUrl: d.url,
       className: d.className || '',

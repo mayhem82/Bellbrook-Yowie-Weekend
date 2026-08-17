@@ -10,14 +10,17 @@ Core event details are confirmed (name, tagline, dates, venue, town, cause,
 contact email, market days/hours, and the weekend's activity list). Entry is
 free — stalls and activities are run by local community clubs and groups as
 their own fundraisers. Camping is hosted by Bellmeadow Homestead, with
-confirmed pricing and booking contact on `camping.html`. Still to fill in:
-day-by-day times for non-market activities, and stallholder/sponsor names.
+confirmed pricing and booking contact on `camping.html`. Stallholder fees,
+policies and the sponsorship tier structure are confirmed on `vendors.html`.
+Still to fill in: day-by-day times for non-market activities, and
+stallholder/sponsor names.
 
 Entertainment lineup is still being finalised by the committee. Confirmed so
 far: whip cracking, trick pony and donkeys with Laughing Stock Productions
-(Saturday); a bucking bull organised by The Bellbrook Hotel (day/time TBC); a
-Yowie Hunt along Postman's Trail (~2hr car-drive activity, day/time TBC); and
-Slim Dusty Tours organised by Kate (times TBC). The Saturday/Sunday live music
+(Saturday); wood chopping with NSW Axemen; a bucking bull organised by The
+Bellbrook Hotel (day/time TBC); a Yowie Hunt along Postman's Trail (~2hr
+car-drive activity, day/time TBC); Slim Dusty Tours organised by Kate (times
+TBC); and gumboot throwing (day/time TBC). The Saturday/Sunday live music
 running order is confirmed — see `schedule.html`'s Live Music Lineup section;
 Friday's lineup is still a draft. Kids' activities are still being organised.
 

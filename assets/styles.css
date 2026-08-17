@@ -498,6 +498,11 @@ section + section {
   margin-bottom: 0.75rem;
 }
 
+.schedule-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.5rem;
+}
+
 table.schedule-table {
   width: 100%;
   border-collapse: collapse;

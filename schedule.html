@@ -235,10 +235,16 @@
   var festivalMap = L.map('festival-map-embed', { scrollWheelZoom: false });
   festivalMap.fitBounds(allSpots, { padding: [60, 60], maxZoom: 16 });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(festivalMap);
+  });
+  var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+  });
+  satelliteLayer.addTo(festivalMap);
+  L.control.layers({ 'Satellite (real photo)': satelliteLayer, 'Street map (OpenStreetMap)': streetLayer }).addTo(festivalMap);
 
   var yowieCampingIcon = L.icon({
     iconUrl: 'assets/img/yowie-camping.png',

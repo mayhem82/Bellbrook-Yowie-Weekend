@@ -210,10 +210,21 @@
   var hotelSpot = [-30.818692, 152.512114];
 
   var map = L.map('planner-map').setView(campingSpot, 16);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+  var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
-  }).addTo(map);
+  });
+  var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
+  });
+
+  // Default to satellite: OSM's road lines for small rural towns like Bellbrook
+  // are often wrong or missing, so real aerial photography is the more
+  // trustworthy reference for lining pins up against actual roads/buildings.
+  satelliteLayer.addTo(map);
+  L.control.layers({ 'Satellite (real photo)': satelliteLayer, 'Street map (OpenStreetMap)': streetLayer }).addTo(map);
 
   var markers = [];
   var listEl = document.getElementById('plannerList');

@@ -9,8 +9,9 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 Core event details are confirmed (name, tagline, dates, venue, town, cause,
 contact email, market days/hours, and the weekend's activity list). Entry is
 free — stalls and activities are run by local community clubs and groups as
-their own fundraisers. Camping is hosted by Bellmeadow Homestead, with
-confirmed pricing and booking contact on `camping.html`. Stallholder fees,
+their own fundraisers. Two camping options are confirmed on `camping.html`:
+Bellmeadow Homestead (pricing and booking contact confirmed) and Bellbrook
+Cabins (pricing/booking still TBC). Stallholder fees,
 policies and the sponsorship tier structure are confirmed on `vendors.html`.
 Still to fill in: day-by-day times for non-market activities, and
 stallholder/sponsor names.

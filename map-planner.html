@@ -80,13 +80,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: var(--cream);
-    border: 2px solid var(--forest-dark);
+    border: 3px solid var(--forest-dark);
     box-shadow: 0 1px 6px rgba(20, 40, 38, 0.45);
-    font-size: 17px;
+    font-size: 22px;
+  }
+  /* White halo so orange Yowie icons stay visible over any tile background,
+     satellite photo or street map. */
+  .planner-marker-icon {
+    filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 2px #fff) drop-shadow(0 1px 3px rgba(20, 40, 38, 0.65));
   }
   .planner-list {
     margin-top: 1rem;
@@ -219,16 +224,16 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
   var ICON_DEFS = {
-    hotel:     { url: 'assets/img/sponsor-bellbrook-hotel.jpg', size: [36, 36], anchor: [18, 18], className: 'planner-hotel-icon', label: 'Hotel' },
-    camping:   { url: 'assets/img/yowie-camping.png',           size: [46, 21], anchor: [23, 19], label: 'Camping' },
-    fishing:   { url: 'assets/img/yowie-fishing.png',           size: [40, 29], anchor: [20, 27], label: 'Fishing Comp\'' },
-    music:     { url: 'assets/img/yowie-guitar-cutout.png',     size: [40, 37], anchor: [20, 35], label: 'Live Music' },
-    whip:      { url: 'assets/img/yowie-whip-cracking.png',     size: [38, 38], anchor: [19, 36], label: 'Whip Cracking' },
-    wood:      { url: 'assets/img/yowie-wood-chopping.png',     size: [30, 38], anchor: [15, 36], label: 'Wood Chopping' },
-    facepaint: { url: 'assets/img/yowie-face-painting.png',     size: [28, 38], anchor: [14, 36], label: 'Face Painting' },
-    markets:   { url: 'assets/img/yowie-markets.png',           size: [40, 29], anchor: [20, 27], label: 'Markets' },
-    rfs:       { url: 'assets/img/yowie-rfs.png',                size: [30, 30], anchor: [15, 28], label: 'RFS' },
-    food:      { url: 'assets/img/yowie-dining.png',             size: [28, 38], anchor: [14, 36], label: 'Food' },
+    hotel:     { url: 'assets/img/sponsor-bellbrook-hotel.jpg', size: [54, 54], anchor: [27, 27], className: 'planner-hotel-icon', label: 'Hotel' },
+    camping:   { url: 'assets/img/yowie-camping-orange.png',    size: [69, 32], anchor: [35, 29], className: 'planner-marker-icon', label: 'Camping' },
+    fishing:   { url: 'assets/img/yowie-fishing-orange.png',    size: [60, 44], anchor: [30, 41], className: 'planner-marker-icon', label: 'Fishing Comp\'' },
+    music:     { url: 'assets/img/yowie-guitar-cutout-orange.png', size: [60, 56], anchor: [30, 53], className: 'planner-marker-icon', label: 'Live Music' },
+    whip:      { url: 'assets/img/yowie-whip-cracking-orange.png', size: [57, 57], anchor: [29, 54], className: 'planner-marker-icon', label: 'Whip Cracking' },
+    wood:      { url: 'assets/img/yowie-wood-chopping-orange.png', size: [45, 57], anchor: [23, 54], className: 'planner-marker-icon', label: 'Wood Chopping' },
+    facepaint: { url: 'assets/img/yowie-face-painting-orange.png', size: [42, 57], anchor: [21, 54], className: 'planner-marker-icon', label: 'Face Painting' },
+    markets:   { url: 'assets/img/yowie-markets-orange.png',    size: [60, 44], anchor: [30, 41], className: 'planner-marker-icon', label: 'Markets' },
+    rfs:       { url: 'assets/img/yowie-rfs-orange.png',        size: [45, 45], anchor: [23, 42], className: 'planner-marker-icon', label: 'RFS' },
+    food:      { url: 'assets/img/yowie-dining-orange.png',     size: [42, 57], anchor: [21, 54], className: 'planner-marker-icon', label: 'Food' },
     parking:   { emoji: '🅿️', label: 'Parking' },
     park:      { emoji: '🌳', label: 'Bellbrook Park' },
     kidsplay:  { emoji: '🛝', label: 'Kids Play Area' }
@@ -264,9 +269,9 @@
       return L.divIcon({
         html: '<span class="planner-emoji-pin">' + d.emoji + '</span>',
         className: '',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16],
-        popupAnchor: [0, -16]
+        iconSize: [42, 42],
+        iconAnchor: [21, 21],
+        popupAnchor: [0, -21]
       });
     }
     return L.icon({

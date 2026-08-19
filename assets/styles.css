@@ -482,6 +482,12 @@ section + section {
   object-fit: cover;
 }
 
+/* White halo so orange Yowie activity icons stay visible over any tile
+   background, satellite photo or street map. */
+.map-marker-icon {
+  filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 2px #fff) drop-shadow(0 1px 3px rgba(20, 40, 38, 0.65));
+}
+
 /* Schedule table */
 
 .schedule-day {

@@ -247,53 +247,60 @@
   L.control.layers({ 'Satellite (real photo)': satelliteLayer, 'Street map (OpenStreetMap)': streetLayer }).addTo(festivalMap);
 
   var yowieCampingIcon = L.icon({
-    iconUrl: 'assets/img/yowie-camping.png',
-    iconSize: [45, 21],
-    iconAnchor: [23, 19],
-    popupAnchor: [0, -19]
+    iconUrl: 'assets/img/yowie-camping-orange.png',
+    className: 'map-marker-icon',
+    iconSize: [68, 32],
+    iconAnchor: [34, 29],
+    popupAnchor: [0, -29]
   });
   var hotelIcon = L.icon({
     iconUrl: 'assets/img/sponsor-bellbrook-hotel.jpg',
     className: 'hotel-marker-icon',
-    iconSize: [34, 34],
-    iconAnchor: [17, 17],
-    popupAnchor: [0, -17]
+    iconSize: [48, 48],
+    iconAnchor: [24, 24],
+    popupAnchor: [0, -24]
   });
   var fishingIcon = L.icon({
-    iconUrl: 'assets/img/yowie-fishing.png',
-    iconSize: [30, 21],
-    iconAnchor: [15, 19],
-    popupAnchor: [0, -19]
+    iconUrl: 'assets/img/yowie-fishing-orange.png',
+    className: 'map-marker-icon',
+    iconSize: [45, 32],
+    iconAnchor: [23, 29],
+    popupAnchor: [0, -29]
   });
   var marketIcon = L.icon({
-    iconUrl: 'assets/img/yowie-markets.png',
-    iconSize: [30, 22],
-    iconAnchor: [15, 20],
-    popupAnchor: [0, -20]
+    iconUrl: 'assets/img/yowie-markets-orange.png',
+    className: 'map-marker-icon',
+    iconSize: [45, 33],
+    iconAnchor: [23, 30],
+    popupAnchor: [0, -30]
   });
   var woodIcon = L.icon({
-    iconUrl: 'assets/img/yowie-wood-chopping.png',
-    iconSize: [24, 30],
-    iconAnchor: [12, 28],
-    popupAnchor: [0, -28]
+    iconUrl: 'assets/img/yowie-wood-chopping-orange.png',
+    className: 'map-marker-icon',
+    iconSize: [36, 45],
+    iconAnchor: [18, 42],
+    popupAnchor: [0, -42]
   });
   var whipIcon = L.icon({
-    iconUrl: 'assets/img/yowie-whip-cracking.png',
-    iconSize: [30, 30],
-    iconAnchor: [15, 28],
-    popupAnchor: [0, -28]
+    iconUrl: 'assets/img/yowie-whip-cracking-orange.png',
+    className: 'map-marker-icon',
+    iconSize: [45, 45],
+    iconAnchor: [23, 42],
+    popupAnchor: [0, -42]
   });
   var facepaintIcon = L.icon({
-    iconUrl: 'assets/img/yowie-face-painting.png',
-    iconSize: [22, 30],
-    iconAnchor: [11, 28],
-    popupAnchor: [0, -28]
+    iconUrl: 'assets/img/yowie-face-painting-orange.png',
+    className: 'map-marker-icon',
+    iconSize: [33, 45],
+    iconAnchor: [17, 42],
+    popupAnchor: [0, -42]
   });
   var musicIcon = L.icon({
-    iconUrl: 'assets/img/yowie-guitar-cutout.png',
-    iconSize: [30, 28],
-    iconAnchor: [15, 26],
-    popupAnchor: [0, -26]
+    iconUrl: 'assets/img/yowie-guitar-cutout-orange.png',
+    className: 'map-marker-icon',
+    iconSize: [45, 42],
+    iconAnchor: [23, 39],
+    popupAnchor: [0, -39]
   });
 
   campingSpots.forEach(function (spot, i) {

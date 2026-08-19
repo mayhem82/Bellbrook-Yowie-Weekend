@@ -242,14 +242,21 @@
   var campingSpot = [-30.819269, 152.513592];
   var hotelSpot = [-30.818692, 152.512114];
 
-  var map = L.map('planner-map').setView(campingSpot, 16);
+  var map = L.map('planner-map', { maxZoom: 22 }).setView(campingSpot, 16);
 
+  // maxZoom is set higher than maxNativeZoom on purpose: Bellbrook's satellite
+  // imagery tops out around z19, but capping the map there makes exact pin
+  // placement hard. Past z19 Leaflet just upscales the same tile instead of
+  // fetching a sharper one, so the photo stops getting crisper, but you can
+  // keep zooming in for finer-grained dragging precision.
   var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
+    maxZoom: 22,
+    maxNativeZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
   });
   var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    maxZoom: 19,
+    maxZoom: 22,
+    maxNativeZoom: 19,
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
   });
 

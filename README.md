@@ -56,9 +56,9 @@ No `[[TOKEN]]` placeholders are left in the site — everything still unknown
 is written as plain "TBC" text in context instead. Still outstanding with the
 committee:
 
-- Fishing competition location and entry details
 - Specific market stallholder names (`vendors.html`)
 - Friday's live music lineup and a few other activity times (`schedule.html`)
+- Fishing Comp' presentation location (day/time and river location are confirmed)
 
 There's no contact form on the site — every "get involved" call to action is a
 plain `mailto:` link to `bellbrook.yowie.fest@gmail.com`, so there's nothing to

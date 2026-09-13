@@ -27,12 +27,14 @@ been added, linked from every footer.
 Entertainment lineup is still being finalised by the committee. Confirmed so
 far: whip cracking, trick pony and donkeys with Laughing Stock Productions
 (Saturday, 11:30am and 2:30pm); wood chopping with NSW Axemen; face painting
-by Pepparific Parties; a bucking bull organised by The Bellbrook Hotel
-(day/time TBC); a Yowie Hunt along Postman's Trail (~2hr car-drive activity,
-day/time TBC); Slim Dusty Tours organised by Kate (times TBC); and gumboot
-throwing (day/time TBC). The Saturday/Sunday live music running order is
-confirmed — see `schedule.html`'s Live Music Lineup section; Friday's lineup
-is still a draft. Kids' activities are still being organised.
+by Pepparific Parties; a Fishing Comp' running the whole weekend on the
+Macleay River; a bucking bull organised by The Bellbrook Hotel (day/time
+TBC); a Yowie Hunt along Postman's Trail (Saturday, 8-9am registration at
+Bellmeadow Homestead, own page `yowie-hunt.html`); Slim Dusty Tours
+organised by Kate (times TBC); and gumboot throwing (day/time TBC). The
+Saturday/Sunday live music running order is confirmed — see
+`schedule.html`'s Live Music Lineup section; Friday's lineup is still a
+draft. Kids' activities are still being organised.
 
 ## Structure
 

@@ -7,10 +7,10 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 ## Status
 
 **Live** — the DRAFT banners have been removed from every page. A few details
-are still genuinely TBC with the committee (fishing competition location,
-specific stallholder names, Friday's live music lineup, some activity times)
-and are shown as plain "TBC" text in context rather than as `[[TOKEN]]`
-placeholders.
+are still genuinely unconfirmed with the committee (fishing competition
+location, specific stallholder names, Friday's live music lineup, some
+activity times) and are shown as "TBA" in the schedule rather than as
+`[[TOKEN]]` placeholders.
 
 Core event details are confirmed (name, tagline, dates, venue, town, cause,
 contact email, market days/hours, and the weekend's activity list). Entry is

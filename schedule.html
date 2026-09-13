@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Kaushan+Script&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
 
@@ -179,11 +178,6 @@
     </p>
   </section>
 
-  <section id="festival-map">
-    <h2 class="section-title">Find your way around</h2>
-    <div id="festival-map-embed" class="map-embed" role="img" aria-label="Map of the festival area showing pins for The Bellbrook Hotel, camping, market stalls along Main Street, wood chopping, whip cracking, face painting, live music and fishing spots along the river, all placed by the event organisers"></div>
-  </section>
-
 </main>
 
 <footer class="site-footer">
@@ -194,143 +188,6 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-  // Everything below is exact, exported straight from the map planner tool
-  // (map-planner.html) — no screenshot estimation involved.
-  var campingSpots = [
-    [-30.819269, 152.513592],
-    [-30.818491, 152.513942],
-    [-30.818702, 152.515325]
-  ];
-  var hotelSpots = [
-    [-30.820443, 152.511581],
-    [-30.820461, 152.512084]
-  ];
-  var fishingSpots = [
-    [-30.820458, 152.507598],
-    [-30.822618, 152.513653],
-    [-30.821142, 152.509930]
-  ];
-  var marketSpots = [
-    [-30.819458, 152.510436],
-    [-30.819316, 152.510215],
-    [-30.819149, 152.509982],
-    [-30.818321, 152.508571],
-    [-30.819239, 152.509227]
-  ];
-  var musicSpots = [
-    [-30.820439, 152.510555],
-    [-30.820759, 152.511772]
-  ];
-  var woodSpot = [-30.820319, 152.512132];
-  var whipSpot = [-30.820263, 152.511575];
-  var facepaintSpot = [-30.820154, 152.511082];
-
-  var allSpots = campingSpots
-    .concat(hotelSpots, fishingSpots, marketSpots, musicSpots, [woodSpot, whipSpot, facepaintSpot]);
-
-  var festivalMap = L.map('festival-map-embed', { scrollWheelZoom: false });
-  festivalMap.fitBounds(allSpots, { padding: [60, 60], maxZoom: 16 });
-
-  var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 22,
-    maxNativeZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  });
-  var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    maxZoom: 22,
-    maxNativeZoom: 19,
-    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics'
-  });
-  satelliteLayer.addTo(festivalMap);
-  L.control.layers({ 'Satellite (real photo)': satelliteLayer, 'Street map (OpenStreetMap)': streetLayer }).addTo(festivalMap);
-
-  var yowieCampingIcon = L.icon({
-    iconUrl: 'assets/img/yowie-camping-orange.png',
-    className: 'map-marker-icon',
-    iconSize: [68, 32],
-    iconAnchor: [34, 29],
-    popupAnchor: [0, -29]
-  });
-  var hotelIcon = L.icon({
-    iconUrl: 'assets/img/sponsor-bellbrook-hotel.jpg',
-    className: 'hotel-marker-icon',
-    iconSize: [48, 48],
-    iconAnchor: [24, 24],
-    popupAnchor: [0, -24]
-  });
-  var fishingIcon = L.icon({
-    iconUrl: 'assets/img/yowie-fishing-orange.png',
-    className: 'map-marker-icon',
-    iconSize: [45, 32],
-    iconAnchor: [23, 29],
-    popupAnchor: [0, -29]
-  });
-  var marketIcon = L.icon({
-    iconUrl: 'assets/img/yowie-markets-orange.png',
-    className: 'map-marker-icon',
-    iconSize: [45, 33],
-    iconAnchor: [23, 30],
-    popupAnchor: [0, -30]
-  });
-  var woodIcon = L.icon({
-    iconUrl: 'assets/img/yowie-wood-chopping-orange.png',
-    className: 'map-marker-icon',
-    iconSize: [36, 45],
-    iconAnchor: [18, 42],
-    popupAnchor: [0, -42]
-  });
-  var whipIcon = L.icon({
-    iconUrl: 'assets/img/yowie-whip-cracking-orange.png',
-    className: 'map-marker-icon',
-    iconSize: [45, 45],
-    iconAnchor: [23, 42],
-    popupAnchor: [0, -42]
-  });
-  var facepaintIcon = L.icon({
-    iconUrl: 'assets/img/yowie-face-painting-orange.png',
-    className: 'map-marker-icon',
-    iconSize: [33, 45],
-    iconAnchor: [17, 42],
-    popupAnchor: [0, -42]
-  });
-  var musicIcon = L.icon({
-    iconUrl: 'assets/img/yowie-guitar-cutout-orange.png',
-    className: 'map-marker-icon',
-    iconSize: [45, 42],
-    iconAnchor: [23, 39],
-    popupAnchor: [0, -39]
-  });
-
-  campingSpots.forEach(function (spot, i) {
-    var m = L.marker(spot, { icon: yowieCampingIcon }).addTo(festivalMap)
-      .bindPopup('Camping &mdash; The Yowie Festival');
-    if (i === 0) m.openPopup();
-  });
-  hotelSpots.forEach(function (spot) {
-    L.marker(spot, { icon: hotelIcon }).addTo(festivalMap)
-      .bindPopup('The Bellbrook Hotel &mdash; festival venue');
-  });
-  fishingSpots.forEach(function (spot) {
-    L.marker(spot, { icon: fishingIcon }).addTo(festivalMap)
-      .bindPopup('Fishing Comp&rsquo; &mdash; Friday 3pm to Sunday weigh-in.');
-  });
-  marketSpots.forEach(function (spot) {
-    L.marker(spot, { icon: marketIcon }).addTo(festivalMap)
-      .bindPopup('Market stall &mdash; along Main Street.');
-  });
-  musicSpots.forEach(function (spot) {
-    L.marker(spot, { icon: musicIcon }).addTo(festivalMap)
-      .bindPopup('Live Music &mdash; Main Stage.');
-  });
-  L.marker(woodSpot, { icon: woodIcon }).addTo(festivalMap)
-    .bindPopup('Wood Chopping Competition.');
-  L.marker(whipSpot, { icon: whipIcon }).addTo(festivalMap)
-    .bindPopup('Whip Cracking Display &mdash; Laughing Stock Productions.');
-  L.marker(facepaintSpot, { icon: facepaintIcon }).addTo(festivalMap)
-    .bindPopup('Face Painting.');
-</script>
 
 </body>
 </html>

@@ -547,6 +547,15 @@ table.schedule-table td.time {
   color: var(--accent-dark);
 }
 
+.safety-list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.4rem;
+}
+
+.safety-list li {
+  margin: 0.35rem 0;
+}
+
 /* Sponsor tiers */
 
 .tier-heading {

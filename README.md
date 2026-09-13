@@ -11,19 +11,23 @@ contact email, market days/hours, and the weekend's activity list). Entry is
 free — stalls and activities are run by local community clubs and groups as
 their own fundraisers. Two camping options are confirmed on `camping.html`:
 Bellmeadow Homestead (pricing and booking contact confirmed) and Bellbrook
-Cabins (pricing/booking still TBC). Stallholder fees,
-policies and the sponsorship tier structure are confirmed on `vendors.html`.
-Still to fill in: day-by-day times for non-market activities, and
-stallholder/sponsor names.
+Cabins (pricing/booking still TBC) — The Bellbrook Hotel's own cabins are
+sold out. Stallholder fees, policies and the sponsorship tier structure are
+confirmed on `vendors.html`, now including Silver and Bronze sponsors.
+`safety.html` has confirmed first aid (Slim Dusty Room), defibrillator
+location, heat safety and fire safety content. A `disclaimer.html` page has
+been added, linked from every footer. Still to fill in: day-by-day times for
+some non-market activities, and stallholder names.
 
 Entertainment lineup is still being finalised by the committee. Confirmed so
 far: whip cracking, trick pony and donkeys with Laughing Stock Productions
-(Saturday); wood chopping with NSW Axemen; a bucking bull organised by The
-Bellbrook Hotel (day/time TBC); a Yowie Hunt along Postman's Trail (~2hr
-car-drive activity, day/time TBC); Slim Dusty Tours organised by Kate (times
-TBC); and gumboot throwing (day/time TBC). The Saturday/Sunday live music
-running order is confirmed — see `schedule.html`'s Live Music Lineup section;
-Friday's lineup is still a draft. Kids' activities are still being organised.
+(Saturday, 11:30am and 2:30pm); wood chopping with NSW Axemen; face painting
+by Pepparific Parties; a bucking bull organised by The Bellbrook Hotel
+(day/time TBC); a Yowie Hunt along Postman's Trail (~2hr car-drive activity,
+day/time TBC); Slim Dusty Tours organised by Kate (times TBC); and gumboot
+throwing (day/time TBC). The Saturday/Sunday live music running order is
+confirmed — see `schedule.html`'s Live Music Lineup section; Friday's lineup
+is still a draft. Kids' activities are still being organised.
 
 ## Structure
 
@@ -47,8 +51,8 @@ Every page uses `[[TOKEN]]` markers for content that isn't decided yet. Search
 the whole repo for `[[` to find them all, e.g.:
 
 - `[[FISHING_LOCATION]]` — where the fishing competition is held
-- `[[FIRST_AID_LOCATION]]` — first aid point and provider, on `safety.html`
-- `[[VENDOR_NAME_*]]`, `[[SPONSOR_NAME_*]]` — stallholder and sponsor names
+- `[[VENDOR_NAME_*]]` — stallholder names on `vendors.html`
+- `[[SPONSOR_NAME_3]]` — one remaining supporting sponsor name
 
 Exact times weren't on the event poster, so `schedule.html` uses "TBC" in the
 time column — replace those once the official running order is published.

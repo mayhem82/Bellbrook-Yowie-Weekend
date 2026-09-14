@@ -467,6 +467,21 @@ section + section {
   display: block;
 }
 
+.location-map-photo {
+  margin-top: 1.25rem;
+  max-width: 420px;
+  border: 1px solid var(--cream-dim);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(20, 40, 38, 0.12);
+}
+
+.location-map-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .map-note {
   margin-top: 0.75rem;
   font-size: 0.9rem;

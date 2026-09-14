@@ -8,41 +8,31 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 
 **Live** at [yowiefest.com](https://yowiefest.com) (and still reachable at
 `mayhem82.github.io/Bellbrook-Yowie-Weekend/`). No DRAFT banners or
-`[[TOKEN]]` placeholders remain anywhere on the site. A few details are still
-genuinely unconfirmed with the committee (specific stallholder names,
-Friday's live music lineup, a handful of activity times) and are shown as
-"TBA" in context rather than as placeholders.
+`[[TOKEN]]` placeholders remain anywhere on the site.
 
 Core event details are confirmed (name, tagline, dates, venue, town, cause,
-contact email, market days/hours, and the weekend's activity list). Entry is
-free — stalls and activities are run by local community clubs and groups as
-their own fundraisers. Two camping options are confirmed on `camping.html`:
-Bellmeadow Homestead (pricing and booking contact confirmed) and Bellbrook
-Cabins (pricing/booking still TBA) — The Bellbrook Hotel's own cabins are
-sold out. Stallholder fees, policies and the full sponsorship tier structure
-(Platinum through Supporting) are confirmed on `vendors.html`. `safety.html`
-has confirmed first aid (Slim Dusty Room), defibrillator location, heat
-safety and fire safety content. A `disclaimer.html` page carries the
-committee's official disclaimer text, linked from every footer.
+contact email, market days/hours). Entry is by gold coin donation. Camping
+is hosted solely by Bellmeadow Homestead (a second option at Bellbrook
+Cabins was pulled — not yet approved). The Bellbrook Hotel's own cabins are
+sold out. `vendors.html` has 9 confirmed stallholders and the full
+sponsorship tier structure. `safety.html` has confirmed first aid (Slim
+Dusty Room), defibrillator location, a named muster point (Bellbrook Park —
+the map pin itself is still centred on the hotel pending real coordinates),
+heat safety, camp chair and "cash is king" notes. A `disclaimer.html` page
+carries the committee's official disclaimer text, linked from every footer.
+
+`schedule.html` has the committee's full three-day live music running order
+and entertainment program (Official Opening, Best Yowie Screach, Yowie
+Queen Presentation, Post Ripping, Bucking Bull Sunday 1-4pm, Football Sunday
+7:30pm, and more) — see that file's own notes on the "single start-time per
+act" format used for the live music table. Still outstanding with the
+committee: Wood Chopping's finish time, Slim Dusty Tours and gumboot
+throwing (day/time), and Bucking Bull's exact location.
 
 Sponsors/organisers still needing an external link once one's available:
-Kempsey Stock & Land Pty Ltd, Macleay Pumps & Irrigation, Smithtown
-Sporties, the Bellbrook Fishing Club, Laughing Stock Productions, NSW
-Axemen, and Flash Ratz with Jo Lane.
-
-Entertainment lineup is still being finalised by the committee. Confirmed so
-far: whip cracking, trick pony and donkeys with Laughing Stock Productions
-(Saturday, 11:30am and 2:30pm); wood chopping with NSW Axemen, sponsored by
-Kempsey Stock & Land; face painting by Pepparific Parties, ongoing all
-weekend; a Fishing Comp' organised by the Bellbrook Fishing Club, running
-the whole weekend on the Macleay River (Friday 3pm to Sunday weigh-in); a
-Yowie Hunt along Postman's Trail (Saturday, 8-9am registration at Bellmeadow
-Homestead, own page `yowie-hunt.html`); a bucking bull organised by The
-Bellbrook Hotel (day/time TBA); Slim Dusty Tours organised by Kate (times
-TBA); and gumboot throwing (day/time TBA). The Saturday/Sunday live music
-running order is confirmed — see `schedule.html`'s Live Music Lineup
-section; Friday's lineup is still being finalised. Kids' activities are
-still being organised.
+Kempsey Stock & Land Pty Ltd, Macleay Pumps & Irrigation, the Bellbrook
+Fishing Club, Laughing Stock Productions, NSW Axemen, and Flash Ratz with
+Jo Lane.
 
 The homepage's "Getting There" map is a static screenshot image
 (`assets/img/getting-there-map.jpg`), not a live embed — replaced after
@@ -75,9 +65,10 @@ No `[[TOKEN]]` placeholders are left in the site — everything still unknown
 is written as plain "TBA" text in context instead. Still outstanding with the
 committee:
 
-- Specific market stallholder names (`vendors.html`)
-- Friday's live music lineup and a few other activity times (`schedule.html`)
-- Fishing Comp' presentation location (day/time and river location are confirmed)
+- Wood Chopping Competition's finish time (`schedule.html`)
+- Slim Dusty Tours and gumboot throwing, day/time (`schedule.html`)
+- Bucking Bull's exact location (`schedule.html`)
+- Bellbrook Park's map coordinates for the muster point pin (`safety.html`)
 
 There's no contact form on the site — every "get involved" call to action is a
 plain `mailto:` link to `bellbrook.yowie.fest@gmail.com`, so there's nothing to

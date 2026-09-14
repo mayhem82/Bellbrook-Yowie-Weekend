@@ -11,28 +11,34 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 `[[TOKEN]]` placeholders remain anywhere on the site.
 
 Core event details are confirmed (name, tagline, dates, venue, town, cause,
-contact email, market days/hours). Entry is by gold coin donation. Camping
-is hosted solely by Bellmeadow Homestead (a second option at Bellbrook
-Cabins was pulled — not yet approved). The Bellbrook Hotel's own cabins are
-sold out. `vendors.html` has 9 confirmed stallholders and the full
-sponsorship tier structure. `safety.html` has confirmed first aid (Slim
-Dusty Room), defibrillator location, a named muster point (Bellbrook Park —
-the map pin itself is still centred on the hotel pending real coordinates),
-heat safety, camp chair and "cash is king" notes. A `disclaimer.html` page
-carries the committee's official disclaimer text, linked from every footer.
+contact email, market days/hours). Entry is $10/adult, kids under 14 free.
+Parking on-site is attendant-monitored. Camping is hosted solely by
+Bellmeadow Homestead (a second option at Bellbrook Cabins was pulled — not
+yet approved). The Bellbrook Hotel's own cabins are sold out. `vendors.html`
+has 9 confirmed stallholders and the full sponsorship tier structure, with
+logos and links for Kempsey Stock & Land Pty Ltd and Pepparific Parties.
+`safety.html` has confirmed first aid (Slim Dusty Room), defibrillator
+location, a named muster point (Bellbrook Park — the map pin itself is
+still centred on the hotel pending real coordinates), heat safety, camp
+chair and "cash is king" notes. A `disclaimer.html` page carries the
+committee's official disclaimer text, linked from every footer.
 
-`schedule.html` has the committee's full three-day live music running order
-and entertainment program (Official Opening, Best Yowie Screach, Yowie
-Queen Presentation, Post Ripping, Bucking Bull Sunday 1-4pm, Football Sunday
-7:30pm, and more) — see that file's own notes on the "single start-time per
-act" format used for the live music table. Still outstanding with the
-committee: Wood Chopping's finish time, Slim Dusty Tours and gumboot
-throwing (day/time), and Bucking Bull's exact location.
+`schedule.html` has the committee's full three-day running order, with
+live music merged directly into each day's single table (no separate
+lineup section — see that file's notes on the "single start-time per act"
+format) plus the full entertainment program (Official Opening, Best Yowie
+Screech, Yowie Queen Presentation, Post Ripping, Bucking Bull Sunday
+1-4pm, Football Sunday 7:30pm). Wood Chopping is now framed as a
+demonstration organised by NSW Axemen (not a competition) — the page is
+still at `wood-chopping-competition.html` for URL stability, just reworded.
+Slim Dusty Tours is cancelled and removed from the site; gumboot throwing
+was dropped from confirmed-activities mentions since it's not being
+formally run. Still outstanding with the committee: Wood Chopping's finish
+time and Bucking Bull's exact location.
 
-Sponsors/organisers still needing an external link once one's available:
-Kempsey Stock & Land Pty Ltd, Macleay Pumps & Irrigation, the Bellbrook
-Fishing Club, Laughing Stock Productions, NSW Axemen, and Flash Ratz with
-Jo Lane.
+Real links now added for: Kempsey Stock & Land, Macleay Pumps &
+Irrigation, Bellbrook Fishing Club, Laughing Stock Productions, and NSW
+Axemen. Flash Ratz with Jo Lane still has no link.
 
 The homepage's "Getting There" map is a static screenshot image
 (`assets/img/getting-there-map.jpg`), not a live embed — replaced after
@@ -65,10 +71,10 @@ No `[[TOKEN]]` placeholders are left in the site — everything still unknown
 is written as plain "TBA" text in context instead. Still outstanding with the
 committee:
 
-- Wood Chopping Competition's finish time (`schedule.html`)
-- Slim Dusty Tours and gumboot throwing, day/time (`schedule.html`)
+- Wood Chopping Demonstration's finish time (`schedule.html`)
 - Bucking Bull's exact location (`schedule.html`)
 - Bellbrook Park's map coordinates for the muster point pin (`safety.html`)
+- Flash Ratz with Jo Lane's link
 
 There's no contact form on the site — every "get involved" call to action is a
 plain `mailto:` link to `bellbrook.yowie.fest@gmail.com`, so there's nothing to

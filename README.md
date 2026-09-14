@@ -6,56 +6,73 @@ build step, no framework — deploys as-is to GitHub Pages or any static host.
 
 ## Status
 
-**Live** — the DRAFT banners have been removed from every page. A few details
-are still genuinely unconfirmed with the committee (fishing competition
-location, specific stallholder names, Friday's live music lineup, some
-activity times) and are shown as "TBA" in the schedule rather than as
-`[[TOKEN]]` placeholders.
+**Live** at [yowiefest.com](https://yowiefest.com) (and still reachable at
+`mayhem82.github.io/Bellbrook-Yowie-Weekend/`). No DRAFT banners or
+`[[TOKEN]]` placeholders remain anywhere on the site. A few details are still
+genuinely unconfirmed with the committee (specific stallholder names,
+Friday's live music lineup, a handful of activity times) and are shown as
+"TBA" in context rather than as placeholders.
 
 Core event details are confirmed (name, tagline, dates, venue, town, cause,
 contact email, market days/hours, and the weekend's activity list). Entry is
 free — stalls and activities are run by local community clubs and groups as
 their own fundraisers. Two camping options are confirmed on `camping.html`:
 Bellmeadow Homestead (pricing and booking contact confirmed) and Bellbrook
-Cabins (pricing/booking still TBC) — The Bellbrook Hotel's own cabins are
-sold out. Stallholder fees, policies and the sponsorship tier structure are
-confirmed on `vendors.html`, now including Silver and Bronze sponsors.
-`safety.html` has confirmed first aid (Slim Dusty Room), defibrillator
-location, heat safety and fire safety content. A `disclaimer.html` page has
-been added, linked from every footer.
+Cabins (pricing/booking still TBA) — The Bellbrook Hotel's own cabins are
+sold out. Stallholder fees, policies and the full sponsorship tier structure
+(Platinum through Supporting) are confirmed on `vendors.html`. `safety.html`
+has confirmed first aid (Slim Dusty Room), defibrillator location, heat
+safety and fire safety content. A `disclaimer.html` page carries the
+committee's official disclaimer text, linked from every footer.
+
+Sponsors/organisers still needing an external link once one's available:
+Kempsey Stock & Land Pty Ltd, Macleay Pumps & Irrigation, Smithtown
+Sporties, the Bellbrook Fishing Club, Laughing Stock Productions, NSW
+Axemen, and Flash Ratz with Jo Lane.
 
 Entertainment lineup is still being finalised by the committee. Confirmed so
 far: whip cracking, trick pony and donkeys with Laughing Stock Productions
-(Saturday, 11:30am and 2:30pm); wood chopping with NSW Axemen; face painting
-by Pepparific Parties; a Fishing Comp' running the whole weekend on the
-Macleay River; a bucking bull organised by The Bellbrook Hotel (day/time
-TBC); a Yowie Hunt along Postman's Trail (Saturday, 8-9am registration at
-Bellmeadow Homestead, own page `yowie-hunt.html`); Slim Dusty Tours
-organised by Kate (times TBC); and gumboot throwing (day/time TBC). The
-Saturday/Sunday live music running order is confirmed — see
-`schedule.html`'s Live Music Lineup section; Friday's lineup is still a
-draft. Kids' activities are still being organised.
+(Saturday, 11:30am and 2:30pm); wood chopping with NSW Axemen, sponsored by
+Kempsey Stock & Land; face painting by Pepparific Parties, ongoing all
+weekend; a Fishing Comp' organised by the Bellbrook Fishing Club, running
+the whole weekend on the Macleay River (Friday 3pm to Sunday weigh-in); a
+Yowie Hunt along Postman's Trail (Saturday, 8-9am registration at Bellmeadow
+Homestead, own page `yowie-hunt.html`); a bucking bull organised by The
+Bellbrook Hotel (day/time TBA); Slim Dusty Tours organised by Kate (times
+TBA); and gumboot throwing (day/time TBA). The Saturday/Sunday live music
+running order is confirmed — see `schedule.html`'s Live Music Lineup
+section; Friday's lineup is still being finalised. Kids' activities are
+still being organised.
+
+The homepage's "Getting There" map is a static screenshot image
+(`assets/img/getting-there-map.jpg`), not a live embed — replaced after
+repeated Google Maps iframe issues (pins, DNS-dependent embeds, zoom limits).
+The detailed festival-grounds pin map and the old map-planner tool have both
+been removed until a custom map is ready; only the regional Kempsey-Bellbrook
+image and the `safety.html` muster-point embed remain.
 
 ## Structure
 
 ```
 index.html      Home / about the event
-schedule.html   Weekend program (Day 1 / Day 2 / Day 3 tables)
-safety.html     Emergency info, first aid, weather, fire, alcohol, access
-vendors.html    Market stalls, food vendors, sponsors
+schedule.html   Weekend program (Day 1 / Day 2 / Day 3 tables, live music lineup)
+safety.html     Emergency info, first aid, defibrillator, heat and fire safety
+vendors.html    Market stalls, food vendors, sponsors, become a stallholder/sponsor
+disclaimer.html Committee's official disclaimer text, linked from every footer
 camping.html, whip-cracking-display.html, live-music.html,
 face-painting.html, wood-chopping-competition.html,
-fishing-competition.html
+fishing-competition.html, yowie-hunt.html
                 Individual activity pages, linked from the poster and
                 the homepage highlight cards
 assets/
   styles.css    Shared styling for all pages
+  img/          Yowie icon artwork and photos, including getting-there-map.jpg
 ```
 
-## Remaining TBC items
+## Remaining TBA items
 
 No `[[TOKEN]]` placeholders are left in the site — everything still unknown
-is written as plain "TBC" text in context instead. Still outstanding with the
+is written as plain "TBA" text in context instead. Still outstanding with the
 committee:
 
 - Specific market stallholder names (`vendors.html`)
@@ -84,36 +101,12 @@ Because it's plain static HTML/CSS with no build tooling, this repo can also
 be deployed as-is to Netlify, Vercel, Cloudflare Pages, or any static file
 host — just point the host at the repo root.
 
-## Pointing a custom domain at this site
+## Custom domain
 
-1. **Buy the domain** (if not already done) from any registrar — GoDaddy,
-   Namecheap, Crazy Domains, VentraIP, etc. all work fine for `.com`/`.com.au`.
-2. **Add DNS records** at the registrar (or wherever DNS is managed for the
-   domain). Two options:
-   - **Apex/root domain** (`bellbrookyowiefestival.com`) — add four **A**
-     records, all pointing to GitHub Pages' IPs:
-     ```
-     185.199.108.153
-     185.199.109.153
-     185.199.110.153
-     185.199.111.153
-     ```
-   - **www subdomain** (`www.bellbrookyowiefestival.com`) — add one **CNAME**
-     record pointing to `mayhem82.github.io`.
-   - Most people set up both: A records on the apex, CNAME on `www`, so either
-     version works.
-3. **Add a `CNAME` file** to the root of this repo containing just the domain,
-   e.g. `bellbrookyowiefestival.com` (no `http://`, no trailing slash) — send
-   me the actual domain and I'll add this file and commit/push it for you.
-4. In the repo, go to **Settings → Pages → Custom domain**, enter the same
-   domain, and save. GitHub will verify the DNS records (can take a few
-   minutes to a few hours).
-5. Once verified, tick **Enforce HTTPS** in that same Pages settings screen —
-   GitHub issues a free SSL certificate automatically. This checkbox is
-   greyed out until DNS propagates, so it may need a revisit a bit later.
-6. DNS changes can take anywhere from a few minutes up to ~24-48 hours to
-   fully propagate worldwide, depending on the registrar and the DNS record's
-   TTL. The site keeps working at `mayhem82.github.io/Bellbrook-Yowie-Weekend/`
-   the whole time, so there's no downtime while this propagates.
-
-Send me the domain name once it's purchased and I'll do step 3 immediately.
+`yowiefest.com` is registered (via Namesilo) and live — DNS is configured with
+four A records on the apex pointing to GitHub Pages' IPs
+(`185.199.108/109/110/111.153`) and a `www` CNAME to `mayhem82.github.io`.
+The `CNAME` file in this repo's root points GitHub Pages at the domain, and
+HTTPS is enforced with GitHub's free auto-issued certificate. Nothing further
+needed here unless the domain is ever moved to a new registrar or DNS
+provider, in which case the same records need re-adding there.

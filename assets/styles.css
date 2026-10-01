@@ -405,9 +405,14 @@ section + section {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.01em;
+  font-size: 1.4rem;
   margin-top: 0;
   color: var(--forest);
   overflow-wrap: anywhere;
+}
+
+.card p {
+  font-size: 1.05rem;
 }
 
 .card h3 a {
@@ -576,8 +581,8 @@ table.schedule-table td.time {
 }
 
 .sponsor-card .sponsor-logo {
-  max-width: 220px;
-  max-height: 120px;
+  max-width: 280px;
+  max-height: 150px;
   width: auto;
   height: auto;
   margin: 0 0 1rem;

@@ -551,6 +551,79 @@ table.schedule-table td.time {
   color: var(--accent-dark);
 }
 
+/* Stack the day-by-day program tables as cards on narrow screens
+   instead of requiring horizontal scroll */
+@media (max-width: 680px) {
+  #day-one .schedule-table-wrap,
+  #day-two .schedule-table-wrap,
+  #day-three .schedule-table-wrap {
+    overflow-x: visible;
+  }
+
+  #day-one table.schedule-table,
+  #day-two table.schedule-table,
+  #day-three table.schedule-table {
+    box-shadow: none;
+  }
+
+  #day-one table.schedule-table thead,
+  #day-two table.schedule-table thead,
+  #day-three table.schedule-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  #day-one table.schedule-table tr,
+  #day-two table.schedule-table tr,
+  #day-three table.schedule-table tr {
+    display: block;
+    margin-bottom: 0.9rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(20, 40, 38, 0.12);
+    overflow: hidden;
+  }
+
+  #day-one table.schedule-table tr:last-child,
+  #day-two table.schedule-table tr:last-child,
+  #day-three table.schedule-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  #day-one table.schedule-table td,
+  #day-two table.schedule-table td,
+  #day-three table.schedule-table td {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-bottom: none;
+    white-space: normal;
+  }
+
+  #day-one table.schedule-table td.time,
+  #day-two table.schedule-table td.time,
+  #day-three table.schedule-table td.time {
+    padding-top: 0.75rem;
+  }
+
+  #day-one table.schedule-table td:last-child,
+  #day-two table.schedule-table td:last-child,
+  #day-three table.schedule-table td:last-child {
+    padding-bottom: 0.75rem;
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  #day-one table.schedule-table td:last-child::before,
+  #day-two table.schedule-table td:last-child::before,
+  #day-three table.schedule-table td:last-child::before {
+    content: "\1F4CD\0020";
+    font-style: normal;
+  }
+}
+
 .safety-list {
   margin: 0 0 1.25rem;
   padding-left: 1.4rem;
